@@ -1,0 +1,103 @@
+@charset "UTF-8";
+.tituloGral {
+  cursor: default; }
+
+/* TODO EL ARCHIVO */
+* {
+  font-size: 1.05rem; }
+
+*::-webkit-scrollbar {
+  width: 16px; }
+
+*::-webkit-scrollbar-track {
+  background: #f3d3d3; }
+
+*::-webkit-scrollbar-thumb {
+  background-color: #56b0c2;
+  border-radius: 10px;
+  border: 3px solid #ffffff; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-image: linear-gradient(to bottom, #F5F4C7, #f8f68f); }
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  background-image: linear-gradient(to top, #C5DED4, #9cddc3);
+  z-index: 1; }
+  header nav {
+    font-weight: 600; }
+  header .menuNav {
+    font-size: 17px; }
+  header .logoNav {
+    width: 75px;
+    height: 75px; }
+
+/* FOOTER */
+footer {
+  background-image: linear-gradient(to bottom, #C5DED4, #9cddc3);
+  font-size: 20px; }
+  footer #infoRedes {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center; }
+  footer #menuRedes {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+  footer .linkRedes {
+    margin-left: 15px;
+    color: black; }
+  footer #logoFacebook:hover {
+    color: #3b5998; }
+  footer #logoWhatsapp:hover {
+    color: #4FCE5D; }
+  footer #logoInstagram:hover {
+    color: #833AB4; }
+  footer #copyright {
+    font-size: 16px;
+    cursor: default; }
+
+/* PÁGINAS */
+.tituloGral {
+  font-size: 25px;
+  text-decoration: underline;
+  font-weight: 600;
+  margin-top: 3%; }
+
+#productos {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: center; }
+  #productos div {
+    align-self: center;
+    width: 30vw;
+    height: 60vh; }
+
+h1 {
+  text-align: center;
+  margin-bottom: 3%; }
+
+.btnCompra {
+  background-color: #e69e33;
+  font-weight: 600;
+  width: 20%; }
+  .btnCompra:hover {
+    background-color: #16ac70; }
+
+#carrito {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2%;
+  margin-bottom: 2%; }
+  #carrito button {
+    width: 10%;
+    background-color: #e69e33;
+    font-weight: 600; }
+    #carrito button:hover {
+      background-color: #16ac70; }

@@ -1,0 +1,25 @@
+$variablesBasicas:(
+colorPrincipal:#F5F4C7,
+colorSecundario:#C5DED4,
+tamañoNormal: 16px,
+colorFacebook:#3b5998,
+colorInstagram: #833AB4,
+colorWhatsapp: #4FCE5D,
+);
+
+%cursorNormal{
+    cursor:default;
+};
+
+%boxShadow{
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+@mixin flexbox ($flow,$justify,$align){
+    display: flex;
+    flex-flow: $flow;
+    justify-content: $justify;
+    align-items: $align;
+}

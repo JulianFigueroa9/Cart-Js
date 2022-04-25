@@ -1,0 +1,46 @@
+#productos{
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: center;
+
+    div{
+        align-self: center;
+        width: 30vw;
+        height: 60vh;
+    }
+}
+
+
+h1{
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+.btnCompra{
+    background-color: #e69e33;
+    font-weight: 600;
+    width: 20%;
+
+    &:hover{
+        background-color: #16ac70;
+    }
+}
+
+
+#carrito{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+    margin-bottom: 2%;
+
+    button{
+        width:10%;
+        background-color: #e69e33;
+        font-weight: 600;
+        
+    &:hover{
+        background-color: #16ac70;
+    }
+    }
+}

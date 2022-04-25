@@ -1,0 +1,100 @@
+/* TODO EL ARCHIVO */
+
+*{
+    font-size: 1.05rem;
+}
+
+
+*::-webkit-scrollbar {
+    width: 16px;
+}
+    
+*::-webkit-scrollbar-track {
+    background: #f3d3d3;
+}
+    
+*::-webkit-scrollbar-thumb {
+    background-color: #56b0c2;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}
+
+body{
+    font-family: 'Nunito', sans-serif;
+    background-image: linear-gradient(to bottom, map-get($variablesBasicas,colorPrincipal), #f8f68f);
+}
+
+/* HEADER */
+
+header{
+    position: sticky;
+    top: 0;
+    background-image: linear-gradient(to top, map-get($variablesBasicas,colorSecundario), #9cddc3);
+    z-index: 1;
+    
+    nav{
+        font-weight: 600;
+    }
+
+    .menuNav{
+        font-size: 17px;
+    }
+
+    .logoNav{
+        width: 75px;
+        height: 75px;
+    }
+}
+
+/* FOOTER */
+
+footer{
+    background-image: linear-gradient(to bottom, map-get($variablesBasicas,colorSecundario), #9cddc3);
+    font-size: 20px;
+
+    #infoRedes{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #menuRedes{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .linkRedes{
+        margin-left: 15px;
+        color: black;
+    }
+
+    #logoFacebook:hover{
+        color: map-get($variablesBasicas,colorFacebook);
+    }
+
+    #logoWhatsapp:hover{
+        color: map-get($variablesBasicas,colorWhatsapp);
+    }
+
+    #logoInstagram:hover{
+        color: map-get($variablesBasicas,colorInstagram) ;
+    }
+
+    #copyright{
+        font-size: map-get($variablesBasicas,tamañoNormal);
+        cursor: default;
+    }
+}
+
+/* PÁGINAS */
+
+.tituloGral{
+    font-size: 25px;
+    text-decoration: underline;
+    font-weight: 600;
+    margin-top: 3%;
+    @extend %cursorNormal;
+}
