@@ -17,7 +17,6 @@ productos.push(new Producto(13, "Especialidades", "Budín", 250,"./imagenes/espe
 productos.push(new Producto(14, "Especialidades", "Popcake", 100, "./imagenes/especialidadpopcake.jpg"));
 productos.push(new Producto(15, "Especialidades", "Ice Popcake", 200, "./imagenes/especialidadpopcake2.jpg"));
 
-
 let carrito = [];
 
 let items = document.querySelector("#items");
@@ -77,6 +76,14 @@ function agregarProductoAlCarrito(evento){
     carrito.push(evento.target.getAttribute("id"));
     actualizarCarrito();
     guardarCarritoEnLS()
+    Swal.fire({
+        title: '¡Producto añadido al carrito!',
+        icon: 'success',
+        width: '400px',
+        timer: 1000,
+        allowEscapeKey: true,
+        confirmButtonColor: '#3085d6',
+    });
 }
 
 function actualizarCarrito(){
@@ -88,7 +95,7 @@ function actualizarCarrito(){
         let miItem = productos.filter((itemProductos) => {
             return itemProductos.id === parseInt(item);
         });
-    
+        
         let cantUnidades = carrito.reduce((total, itemId) => {
         return itemId === item ? total+= 1 :total;
         },0);
@@ -124,6 +131,7 @@ function calcularTotal(){
         let miItem = productos.filter ((itemProductos) =>{
             return itemProductos.id === parseInt(item);
         });
+        
         return total + miItem[0].precio;
     },0);
 }
@@ -132,6 +140,15 @@ function vaciarCarrito(){
     carrito = [];
     actualizarCarrito();
     localStorage.clear();
+    
+    Swal.fire({
+    title: '¡Carrito vaciado!',
+    icon: 'success',
+    width: '400px',
+    timer: 1000,
+    allowEscapeKey: true,
+    confirmButtonColor: '#3085d6',
+    });
 }
 
 function guardarCarritoEnLS () {
@@ -150,27 +167,5 @@ cargarCarritoDeLS();
 productosALaVenta();
 actualizarCarrito();
 
-
-/* Swal.fire({
-  title: '¿Desea vaciar el carrito?',
-  text: "Deberás agregar los productos nuevamente.",
-  icon: 'warning',
-  width: '400px',
-  height: '50px',
-  allowEscapeKey: true,
-  showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#d33',
-  confirmButtonText: 'Si, vaciar',
-  cancelButtonText: 'Cancelar',
-}).then((result) => {
-  if (result.isConfirmed) {
-    Swal.fire(
-      'Carrito vaciado!',
-      '',
-      'success',
-    )
-  }
-}) */
 
 
