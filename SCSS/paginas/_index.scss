@@ -1,46 +1,70 @@
-#productos{
-    display: flex;
-    flex-flow: row wrap;
-    align-content: center;
-    justify-content: center;
-
-    div{
-        align-self: center;
-        width: 30vw;
-        height: 60vh;
-    }
-}
-
-
-h1{
+.tituloGral{
     text-align: center;
-    margin-bottom: 3%;
-}
-
-.btnCompra{
-    background-color: #e69e33;
-    font-weight: 600;
-    width: 20%;
-
-    &:hover{
-        background-color: #16ac70;
-    }
 }
 
 
-#carrito{
+.cuerpo{
     display: flex;
     flex-direction: column;
-    margin-left: 2%;
-    margin-bottom: 2%;
+}
 
-    button{
-        width:10%;
-        background-color: #e69e33;
-        font-weight: 600;
-        
+
+.cuerpoProductos{
+    display: flex;
+    flex-flow: column wrap;
+    margin-left: 1.15rem;
+    margin-top: 2rem;
+
+}
+
+.fotos{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    align-self: center;
+}
+
+#items{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    margin: 2%;
+    height: 30%;
+}
+
+.tituloCategoria{
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.tituloProducto{
+    font-size: 1rem;
+    text-align: center;
+}
+
+.precio{
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 6%;
+    font-weight: 600;
+}
+
+.btnComprar, #botonVaciar, .btnX{
+    background-color: #b67718;
+    font-weight: 600;
+    align-self: center;
+    
     &:hover{
-        background-color: #16ac70;
+        background-color: #09925b;
     }
-    }
+}
+
+.btnComprar{
+    width: fit-content;
+}
+aside{
+    align-self: center;
+    margin-bottom: 3%;
 }

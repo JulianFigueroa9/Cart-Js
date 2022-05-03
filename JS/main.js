@@ -1,112 +1,176 @@
 
-
 const productos = [];
 
-productos.push(new Producto("Tortas Personalizadas", "Torta Cars", 1900, "./imagenes/galeria2.jpg"));
-productos.push(new Producto("Tortas Personalizadas", "Torta Instituto", 1800, "./imagenes/galeria1.jpg"));
-productos.push(new Producto("Tortas Personalizadas", "Torta Fernet", 2100, "./imagenes/tortapersonalizada1.jpg"));
-productos.push(new Producto("Tortas Personalizadas", "Torta Letra", 1700, "./imagenes/galeria9.jpg"));
-productos.push(new Producto("Tortas Personalizadas", "Torta Among Us", 2000, "./imagenes/galeria5.jpg"));
-productos.push(new Producto("Tortas y Tartas", "Pavlova", 2000,"./imagenes/pavlova.jpg"));
-productos.push(new Producto("Boxes", "Box Cumpleaños", 2500,"./imagenes/boxcumpleanios.jpg"));
-productos.push(new Producto("Boxes", "Box Dripcake", 2700,"./imagenes/boxdripcake.jpg"));
-productos.push(new Producto("Boxes", "Box Minicakes", 2000,"./imagenes/boxminicakes.jpg"));
-productos.push(new Producto("Boxes", "Box Navidad", 1900,"./imagenes/boxnavidad.jpg"));
-productos.push(new Producto("Boxes", "Box Niño", 2000,"./imagenes/boxninio.jpg"));
-productos.push(new Producto("Especialidades", "Cupcake", 150,"./imagenes/especialidad1.jpg"));
-productos.push(new Producto("Especialidades", "Budín", 250,"./imagenes/especialidad2.jpg"));
-productos.push(new Producto("Especialidades", "Popcake", 100, "./imagenes/especialidadpopcake.jpg"));
-productos.push(new Producto("Especialidades", "Ice Popcake", 200, "./imagenes/especialidadpopcake2.jpg"));
+productos.push(new Producto(1, "Tortas Personalizadas", "Torta Cars", 1900, "./imagenes/galeria2.jpg"));
+productos.push(new Producto(2, "Tortas Personalizadas", "Torta Instituto", 1800, "./imagenes/galeria1.jpg"));
+productos.push(new Producto(3, "Tortas Personalizadas", "Torta Fernet", 2100, "./imagenes/tortapersonalizada1.jpg"));
+productos.push(new Producto(4,"Tortas Personalizadas", "Torta Letra", 1700, "./imagenes/galeria9.jpg"));
+productos.push(new Producto(5, "Tortas Personalizadas", "Torta Among Us", 2000, "./imagenes/galeria5.jpg"));
+productos.push(new Producto(6, "Tortas y Tartas", "Pavlova", 2000,"./imagenes/pavlova.jpg"));
+productos.push(new Producto(7, "Boxes", "Box Cumpleaños", 2500,"./imagenes/boxcumpleanios.jpg"));
+productos.push(new Producto(8, "Boxes", "Box Dripcake", 2700,"./imagenes/boxdripcake.jpg"));
+productos.push(new Producto(9, "Boxes", "Box Minicakes", 2000,"./imagenes/boxminicakes.jpg"));
+productos.push(new Producto(10, "Boxes", "Box Navidad", 1900,"./imagenes/boxnavidad.jpg"));
+productos.push(new Producto(11, "Boxes", "Box Niño", 2000,"./imagenes/boxninio.jpg"));
+productos.push(new Producto(12, "Especialidades", "Cupcake", 150,"./imagenes/especialidad1.jpg"));
+productos.push(new Producto(13, "Especialidades", "Budín", 250,"./imagenes/especialidad2.jpg"));
+productos.push(new Producto(14, "Especialidades", "Popcake", 100, "./imagenes/especialidadpopcake.jpg"));
+productos.push(new Producto(15, "Especialidades", "Ice Popcake", 200, "./imagenes/especialidadpopcake2.jpg"));
 
 
 let carrito = [];
 
+let items = document.querySelector("#items");
+let carritoDOM = document.querySelector("#carrito");
+let total = document.querySelector("#total");
+let btnVaciar = document.querySelector("#botonVaciar");
+let miLocalStorage = window.localStorage;
 const claveLocalStorage = "compraCarrito";
 
-let seccionProductos = document.getElementById("productos");
-let items = document.querySelectorAll("#productos div");
-let botonesCompra = document.getElementsByClassName("btnCompra");
-let totalCarrito = document.querySelector("#carrito div");
-let botonVaciar = document.querySelector("#btnVaciar");
 
-mostrarCarrito();
+function productosALaVenta(){
+    fetch('./data/productos.json')
+    .then(response => response.json())
+    .then(data =>{
+        data.forEach((dato) =>{
+            let nodo = document.createElement("div");
 
-botonVaciar.addEventListener("click",vaciarCarrito); 
+            let nodoCuerpo = document.createElement("div");
+            nodoCuerpo.classList.add("cuerpoProductos")
 
-for (let i = 0; 0 < productos.length; i++) {
-    items[i].children[0].textContent = productos[i].categoria;
-    items[i].children[1].textContent = productos[i].nombre;
-    items[i].children[2].textContent = `$${productos[i].precio}`;
-    items[i].children[3].innerHTML = `<img src= "${productos[i].imagen}" alt="${productos[i].nombre}" width= 100px height= 100px>`;
-    
-    botonesCompra[i].addEventListener("click", ()=>{
-        carrito.push(new Carrito(productos[i].nombre,productos[i].precio));
-        localStorage.setItem(claveLocalStorage,JSON.stringify(carrito));
-        let lista = document.createElement("div");
-        seccionProductos.appendChild(lista);
-        lista.textContent = `Se añadió un/una ${productos[i].nombre} al carrito con un precio de $${productos[i].precio}.`
-        
-        Swal.fire({
-            html: '<h3>Producto agregado al carrito.</h3>',
-            color: '#865101',
-            imageAlt: 'Valeria Sword - Logo',
-            icon: 'success',
-            showConfirmButton: false,
-            timer: 1000,
-            allowEscapeKey: true,
-            width: '400px',
-            height: '50px',
-          })
+            let nodoCategoria = document.createElement("h4");
+            nodoCategoria.textContent = dato.categoria;
+            nodoCategoria.classList.add("tituloCategoria");
+
+            let nodoTitulo = document.createElement("h5");
+            nodoTitulo.textContent = dato.nombre;
+            nodoTitulo.classList.add("tituloProducto");
+            
+
+            let nodoImagen = document.createElement("img");
+            nodoImagen.setAttribute("src", dato.imagen);
+            nodoImagen.classList.add("fotos");
+
+            let nodoPrecio = document.createElement("p");
+            nodoPrecio.textContent = `$${dato.precio}`;
+            nodoPrecio.classList.add("precio")
+
+            let btn = document.createElement("button");
+            btn.textContent = "Comprar";
+            btn.classList.add("btnComprar")
+            btn.setAttribute("id", dato.id);
+            btn.addEventListener('click', agregarProductoAlCarrito);
+            
+            
+            items.appendChild(nodo);
+            nodo.appendChild(nodoCuerpo);
+            nodoCuerpo.appendChild(nodoCategoria);
+            nodoCuerpo.appendChild(nodoTitulo);
+            nodoCuerpo.appendChild(nodoImagen);
+            nodoCuerpo.appendChild(nodoPrecio);
+            nodoCuerpo.appendChild(btn);
+        });
     });
 }
 
-function mostrarCarrito(){
+function agregarProductoAlCarrito(evento){
+    carrito.push(evento.target.getAttribute("id"));
+    actualizarCarrito();
+    guardarCarritoEnLS()
+}
 
-    let carro = localStorage.getItem(claveLocalStorage);
-    if (carro){
+function actualizarCarrito(){
+    carritoDOM.textContent = "";
 
-        carro = JSON.parse(carro);
+    let carritoSinDuplicados = [...new Set(carrito)];
+    carritoSinDuplicados.forEach((item) => {
 
-        carrito = carro;
+        let miItem = productos.filter((itemProductos) => {
+            return itemProductos.id === parseInt(item);
+        });
+    
+        let cantUnidades = carrito.reduce((total, itemId) => {
+        return itemId === item ? total+= 1 :total;
+        },0);
+        
+        let lista = document.createElement("li");
+        lista.textContent = `${cantUnidades} x ${miItem[0].nombre} - $${miItem[0].precio}`;
 
+        let btnBorrar = document.createElement("button");
+        btnBorrar.textContent = "X";
+        btnBorrar.classList.add("btnX");
+        btnBorrar.dataset.item = item;
+        btnBorrar.addEventListener("click", borrarItem);
 
-        for (let i = 0;i<carro.length;i++){
+        lista.appendChild(btnBorrar);
+        carritoDOM.appendChild(lista);
 
-            let compra = carro[i];
-            document.write(`${compra.prod} - $${compra.total}`);
-            document.write("<br>")
-            
-        }
+    });
+    total.textContent = calcularTotal();
+}
 
-    }
+function borrarItem(evento){
+    let id = evento.target.dataset.item;
+    carrito = carrito.filter((carritoId) =>{
+        return carritoId !== id;
+    });
 
+    actualizarCarrito();
+    guardarCarritoEnLS();
+}
+
+function calcularTotal(){
+    return carrito.reduce((total, item) =>{
+        let miItem = productos.filter ((itemProductos) =>{
+            return itemProductos.id === parseInt(item);
+        });
+        return total + miItem[0].precio;
+    },0);
 }
 
 function vaciarCarrito(){
     carrito = [];
-    localStorage.setItem(claveLocalStorage,JSON.stringify(carrito));
-
-    Swal.fire({
-        title: '¿Desea vaciar el carrito?',
-        text: "Deberás agregar los productos nuevamente.",
-        icon: 'warning',
-        width: '400px',
-        height: '50px',
-        allowEscapeKey: true,
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, vaciar',
-        cancelButtonText: 'Cancelar',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Carrito vaciado!',
-            '',
-            'success',
-          )
-        }
-      })
+    actualizarCarrito();
+    localStorage.clear();
 }
+
+function guardarCarritoEnLS () {
+    miLocalStorage.setItem(claveLocalStorage, JSON.stringify(carrito));
+}
+
+function cargarCarritoDeLS () {
+    if (miLocalStorage.getItem(claveLocalStorage) !== null) {
+        carrito = JSON.parse(miLocalStorage.getItem(claveLocalStorage));
+    }
+}
+
+btnVaciar.addEventListener("click", vaciarCarrito);
+
+cargarCarritoDeLS();
+productosALaVenta();
+actualizarCarrito();
+
+
+/* Swal.fire({
+  title: '¿Desea vaciar el carrito?',
+  text: "Deberás agregar los productos nuevamente.",
+  icon: 'warning',
+  width: '400px',
+  height: '50px',
+  allowEscapeKey: true,
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Si, vaciar',
+  cancelButtonText: 'Cancelar',
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire(
+      'Carrito vaciado!',
+      '',
+      'success',
+    )
+  }
+}) */
 
 

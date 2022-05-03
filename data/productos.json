@@ -1,0 +1,107 @@
+[
+    {
+        "id": 1,
+        "categoria": "Tortas Personalizadas",
+        "nombre": "Torta Cars",
+        "precio": 1900,
+        "imagen": "./imagenes/galeria2.jpg"
+    },
+    {
+        "id": 2,
+        "categoria": "Tortas Personalizadas",
+        "nombre": "Torta Instituto",
+        "precio": 1800,
+        "imagen": "./imagenes/galeria1.jpg"
+      },
+    {
+        "id": 3,
+        "categoria": "Tortas Personalizadas",
+        "nombre": "Torta Fernet",
+        "precio": 2100,
+        "imagen": "./imagenes/tortapersonalizada1.jpg"
+    },
+    {
+        "id": 4,
+        "categoria": "Tortas Personalizadas",
+        "nombre": "Torta Letra",
+        "precio": 1700,
+        "imagen": "./imagenes/galeria9.jpg"
+    },
+    {
+        "id": 5,
+        "categoria": "Tortas Personalizadas",
+        "nombre": "Torta Among Us",
+        "precio": 2000,
+        "imagen": "./imagenes/galeria5.jpg"
+    },
+    {
+        "id": 6,
+        "categoria": "Tortas y Tartas",
+        "nombre": "Pavlova",
+        "precio": 2000,
+        "imagen": "./imagenes/pavlova.jpg"
+    },
+    {
+        "id": 7,
+        "categoria": "Boxes",
+        "nombre": "Box Cumpleaños",
+        "precio": 2500,
+        "imagen": "./imagenes/boxcumpleanios.jpg"
+    },
+    {
+        "id": 8,
+        "categoria": "Boxes",
+        "nombre": "Box Dripcake",
+        "precio": 2700,
+        "imagen": "./imagenes/boxdripcake.jpg"
+    },
+    {
+        "id": 9,
+        "categoria": "Boxes",
+        "nombre": "Box Minicakes",
+        "precio": 2000,
+        "imagen": "./imagenes/boxminicakes.jpg"
+    },
+    {
+        "id": 10,
+        "categoria": "Boxes",
+        "nombre": "Box Navidad",
+        "precio": 1900,
+        "imagen": "./imagenes/boxnavidad.jpg"
+    },
+    {
+        "id": 11,
+        "categoria": "Boxes",
+        "nombre": "Box Niño",
+        "precio": 2000,
+        "imagen": "./imagenes/boxninio.jpg"
+    },
+    {
+        "id": 12,
+        "categoria": "Especialidades",
+        "nombre": "Cupcake",
+        "precio": 150,
+        "imagen": "./imagenes/especialidad1.jpg"
+    },
+    {
+        "id": 13,
+        "categoria": "Especialidades",
+        "nombre": "Budín",
+        "precio": 250,
+        "imagen": "./imagenes/especialidad2.jpg"
+    },
+    {
+        "id": 14,
+        "categoria": "Especialidades",
+        "nombre": "Popcake",
+        "precio": 100,
+        "imagen": "./imagenes/especialidadpopcake.jpg"
+    },
+    {
+        "id": 15,
+        "categoria": "Especialidades",
+        "nombre": "Ice Popcake",
+        "precio": 200,
+        "imagen": "./imagenes/especialidadpopcake2.jpg"
+    }
+]
